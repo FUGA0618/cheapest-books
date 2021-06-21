@@ -1,13 +1,20 @@
 {
   "name": "cheapest-books",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "By entering the ISBN of a book, you can list and compare the selling price on Amazon, DMM Books, and SEshop.",
   "main": "main.js",
+  "bin": {
+    "cheapest-books": "./main.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FUGA0618/cheapest-books"
+  },
   "author": "Fu-ga",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.23.4",
