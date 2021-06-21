@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const { NumberPrompt } = require('enquirer')
 const Formatter = require('./src/OutputFormatter')
 
