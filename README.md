@@ -11,7 +11,7 @@ Currently, the following sales sites are supported.
 ## Install
 
 ```
-$ npm i cheapest-books
+$ npm i -g cheapest-books
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ $ npm i cheapest-books
 $ cheapest-books
 ```
 
-2. When the system is waiting for your input, enter the ISBN of the book and press the Enter key.
+2. When the system is waiting for your input, enter the ISBN (13 digits) of the book and press the Enter key.
    
 ```shell
 ? Please enter a ISBN ›
