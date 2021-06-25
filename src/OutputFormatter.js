@@ -29,8 +29,12 @@ class OutputFormatter {
     const siteNames = Object.keys(bookDetails)
     for (const siteName of siteNames) {
       console.log(siteName)
-      console.log(`  価格：${bookDetails[siteName].price}円`)
-      console.log(`  URL：${bookDetails[siteName].url}`)
+      if (bookDetails[siteName].price === '-') {
+        console.log('  取り扱いがありません。')
+      } else {
+        console.log(`  価格：${bookDetails[siteName].price}円`)
+        console.log(`  URL：${bookDetails[siteName].url}`)
+      }
     }
   }
 }

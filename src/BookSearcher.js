@@ -39,7 +39,12 @@ class BookSearcher {
 
     await page.goto(url, DCL)
 
-    const priceText = await page.$eval(element, e => e.textContent)
+    let priceText
+    try {
+      priceText = await page.$eval(element, e => e.textContent)
+    } catch {
+      priceText = '-'
+    }
 
     await browser.close()
     return priceText
@@ -47,9 +52,14 @@ class BookSearcher {
 
   async formatPrice (url, element, prefix) {
     const priceText = await this.returnPriceText(url, element)
-    let price = priceText.replace(prefix, '')
-    price = price.replace(',', '')
-    return parseInt(price)
+
+    if (priceText === '-') {
+      return priceText
+    } else {
+      let price = priceText.replace(prefix, '')
+      price = price.replace(',', '')
+      return parseInt(price)
+    }
   }
 
   async returnAmazonPrice () {
