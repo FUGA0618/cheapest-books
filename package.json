@@ -1,6 +1,6 @@
 {
   "name": "cheapest-books",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "By entering the ISBN of a book, you can list and compare the selling price on Amazon, DMM Books, and SEshop.",
   "main": "main.js",
   "bin": {
