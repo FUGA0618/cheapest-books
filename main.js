@@ -18,6 +18,7 @@ class Main {
         throw new Error('ISBNが正しくありません。')
       } catch (e) {
         console.log(e.message)
+        return '-'
       }
     }
   }
@@ -31,5 +32,7 @@ class Main {
 
 (async () => {
   const isbn = await Main.getIsbn()
-  Main.run(isbn)
+  if (isbn !== '-') {
+    Main.run(isbn)
+  }
 })()
