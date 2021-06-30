@@ -21,7 +21,7 @@ class BookSearcher {
     return this._urlOfSeshop
   }
 
-  async returnBookTitle () {
+  async fetchBookTitle () {
     try {
       const response = await fetch(`https://api.openbd.jp/v1/get?isbn=${this._isbn}&pretty`)
       const json = await response.json()
@@ -31,7 +31,7 @@ class BookSearcher {
     }
   }
 
-  async returnPriceText (url, element) {
+  async fetchPriceText (url, element) {
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
     await page.setJavaScriptEnabled(false)
@@ -51,7 +51,7 @@ class BookSearcher {
   }
 
   async formatPrice (url, element, prefix) {
-    const priceText = await this.returnPriceText(url, element)
+    const priceText = await this.fetchPriceText(url, element)
 
     if (priceText === '-') {
       return priceText
@@ -62,17 +62,17 @@ class BookSearcher {
     }
   }
 
-  async returnAmazonPrice () {
+  async fetchAmazonPrice () {
     const element = '.a-offscreen'
     return this.formatPrice(this._urlOfAmazon, element, '￥')
   }
 
-  async returnDmmPrice () {
+  async fetchDmmPrice () {
     const element = '.rbcomp__item-list__item__price'
     return this.formatPrice(this._urlOfDmm, element, '円')
   }
 
-  async returnSeshopPrice () {
+  async fetchSeshopPrice () {
     const element = '.detail-price'
     return this.formatPrice(this._urlOfSeshop, element, '￥')
   }

@@ -6,22 +6,22 @@ class OutputFormatter {
   }
 
   async showBookTitle () {
-    const bookTitle = await this._searcher.returnBookTitle()
+    const bookTitle = await this._searcher.fetchBookTitle()
     console.log(`【タイトル】${bookTitle}`)
   }
 
   async showBookPriceAndUrl () {
     const bookDetails = {
       Amazon: {
-        price: await this._searcher.returnAmazonPrice(),
+        price: await this._searcher.fetchAmazonPrice(),
         url: this._searcher.urlOfAmazon
       },
       DMM: {
-        price: await this._searcher.returnDmmPrice(),
+        price: await this._searcher.fetchDmmPrice(),
         url: this._searcher.urlOfDmm
       },
       SEshop: {
-        price: await this._searcher.returnSeshopPrice(),
+        price: await this._searcher.fetchSeshopPrice(),
         url: this._searcher.urlOfSeshop
       }
     }
